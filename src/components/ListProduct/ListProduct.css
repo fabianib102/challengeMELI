@@ -1,0 +1,16 @@
+.imgThumbnail{
+  height: 200px;
+}
+
+.productItem{
+  padding: 20px;
+}
+
+.detailProduct{
+  text-align: left;
+}
+
+.main-card{
+  margin-top: 40px;
+  border-radius: 0;
+}
