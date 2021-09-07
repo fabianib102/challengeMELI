@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, InputGroup, Button, FormControl } from "react-bootstrap";
 import logo from "../../assets/images/Logo_ML@2x.png.png";
-import "./Header.scss";
+import "./Header.css";
 
 function Header() {
   return (
