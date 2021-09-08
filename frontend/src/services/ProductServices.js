@@ -9,8 +9,8 @@ export default class ProductServices {
     return this.apiServices.get(`${process.env.REACT_APP_BASE_URL}/api/items?q=${name}`);
   };
 
-  getProductsById = (code) => {
-    return this.apiServices.get(`${process.env.REACT_APP_BASE_URL}/alpha/${code}`);
+  getProductsById = (id) => {
+    return this.apiServices.get(`${process.env.REACT_APP_BASE_URL}/api/items/${id}`);
   }
 
 }

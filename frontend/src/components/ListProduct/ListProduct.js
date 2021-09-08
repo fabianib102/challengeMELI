@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductServices from "../../services/ProductServices";
-import "./ListProduct.css"
+import "./ListProduct.css";
+import { Link } from 'react-router-dom';
 
 const productServices = new ProductServices();
 
@@ -17,7 +18,6 @@ function ListProduct() {
     try {
       const res = await productServices.getProductsByName('iphone');
       if (res.data) {
-        console.log(res.data.items);
         setProductList(res.data.items);
       }
     } catch (err) {
@@ -42,6 +42,7 @@ function ListProduct() {
           <div className="card-body">
             <p className="card-text">
               <small className="text-muted">{item.place}</small>
+              <Link to={`/items/${item.id}`}>Detail</Link>
             </p>
           </div>
         </div>
