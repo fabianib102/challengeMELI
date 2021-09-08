@@ -15,10 +15,10 @@ function ListProduct() {
 
   const getProducts = async () => {
     try {
-      const res = await productServices.getProductsByName();
+      const res = await productServices.getProductsByName('iphone');
       if (res.data) {
-        console.log(res.data.results);
-        setProductList(res.data.results);
+        console.log(res.data.items);
+        setProductList(res.data.items);
       }
     } catch (err) {
       console.log("Ocurrio un error: ", err);
@@ -30,18 +30,18 @@ function ListProduct() {
     ? productList.map((item, i) => (
       <div className="row g-0 productItem" key={i}>
         <div className="col-md-3">
-          <img src={item.thumbnail} className="img-fluid imgThumbnail" />
+          <img src={item.picture} className="img-fluid imgThumbnail" />
         </div>
         <div className="col-md-6 detailProduct">
           <div className="card-body">
-            <h5 className="card-title">$ 1800</h5>
+            <h5 className="card-title">${item.price.amount}</h5>
             <p className="card-text">{item.title}</p>
           </div>
         </div>
         <div className="col-md-3">
           <div className="card-body">
             <p className="card-text">
-              <small className="text-muted">{item.address.state_name}</small>
+              <small className="text-muted">{item.place}</small>
             </p>
           </div>
         </div>
