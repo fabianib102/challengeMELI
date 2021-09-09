@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import ProductServices from '../../services/ProductServices';
+import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import ProductServices from "../../services/ProductServices";
 import { useParams } from "react-router";
+import "./Product.css";
 
 const productServices = new ProductServices();
 
 function Product() {
-
   const { id } = useParams();
   const [detail, setDetailData] = useState({});
   const [price, setPrice] = useState({});
@@ -21,7 +22,7 @@ function Product() {
       if (res.data) {
         console.log(res.data.item);
         setDetailData(res.data.item);
-        setPrice(res.data.item.price)
+        setPrice(res.data.item.price);
       }
     } catch (err) {
       console.log("Ocurrio un error: ", err);
@@ -29,24 +30,28 @@ function Product() {
   };
 
   return (
-    <div className="row g-0 productItem">
-        <div className="col-md-3">
-          <img src={detail.picture} className="img-fluid imgThumbnail" />
+    <div className="container containerProduct">
+      <div className="row g-0 singleProduct">
+        <div className="col-md-8">
+          <img src={detail.picture} className="img-fluid" />
         </div>
-        <div className="col-md-6 detailProduct">
+        <div className="col-md-4 productDetail">
           <div className="card-body">
-            <h5 className="card-title">{price.amount}</h5>
-            <p className="card-text">{detail.title}</p>
+            <h3 className="card-text">{detail.title}</h3>
+            <h1 className="card-title">$ {price.amount}</h1>
+            <Button variant="primary" className="btnBuy">Comprar</Button>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="row g-0">
           <div className="card-body">
-            <p className="card-text">
-              <small className="text-muted">{detail.description}</small>
-            </p>
+            <div className="card-text productDescription">
+              <h3>Descripcion del producto</h3>
+              <p className="text-muted textDesc">{detail.description}</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
   );
 }
 

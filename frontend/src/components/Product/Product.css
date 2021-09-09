@@ -1,0 +1,25 @@
+.singleProduct{
+  background-color: #fff;
+  padding: 20px;
+}
+
+.containerProduct{
+  margin-top: 40px;
+}
+
+.productDescription{
+  text-align: justify;
+}
+
+.textDesc{
+  margin-top: 20px;
+}
+
+.productDetail{
+  text-align: left;
+}
+
+.btnBuy{
+  width: 100%;
+  margin-top: 10px;
+}

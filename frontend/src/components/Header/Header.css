@@ -1,8 +1,24 @@
-.headerCustom{
+.headerCustom {
   background-color: #fff159;
 }
 
 .headerCustom-brand > img {
   width: 50px;
   height: 30px;
+}
+
+.inputFind {
+  border-radius: 0;
+}
+
+.inputFind:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #00000000;
+  outline: 0;
+  box-shadow: none;
+}
+
+.btnFind{
+  border-radius: 0;
 }
