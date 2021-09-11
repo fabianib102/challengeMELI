@@ -5,10 +5,10 @@ import btnSearch from "../../assets/images/ic_Search@2x.png.png"
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-function Header({ setName }) {
+function Header({ setName, searchProduct }) {
 
   const handleFind = () => {
-    alert('que le vamos hacer')
+    searchProduct()
   }
 
   return (
@@ -16,13 +16,13 @@ function Header({ setName }) {
       <div className="container">
         <Link to={`/`}>
           <Navbar.Brand className="headerCustom-brand">
-            <img src={logo} className="d-inline-block align-top" />
+            <img src={logo} alt="logo" className="d-inline-block align-top" />
           </Navbar.Brand>
         </Link>
         <InputGroup>
           <FormControl placeholder="Nunca dejes de buscar" className="inputFind" onChange={e => setName(e.target.value)} />
-          <button className="btnSearch">
-            <img src={btnSearch} className="btnSearchImg" onClick={handleFind}/>
+          <button className="btnSearch" onClick={handleFind}>
+            <img src={btnSearch} alt="btn logo" className="btnSearchImg"/>
           </button>
         </InputGroup>
       </div>

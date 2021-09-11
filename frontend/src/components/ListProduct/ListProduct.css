@@ -1,16 +1,25 @@
-.imgThumbnail{
+.imgThumbnail {
   height: 200px;
 }
 
-.productItem{
+.productItem {
   padding: 20px;
 }
 
-.detailProduct{
+.detailProduct {
   text-align: left;
 }
 
-.main-card{
+.main-card {
   margin-top: 40px;
   border-radius: 0;
+}
+
+.textFind {
+  margin: 30px 0 30px 0;
+}
+
+.linkItem, .linkItem:hover {
+  text-decoration: none;
+  color: #333333;
 }

@@ -1,22 +1,40 @@
-import React, {useState} from "react";
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './components/Header/Header';
-import ListProduct from './components/ListProduct/ListProduct';
-import Product from './components/Product/Product';
+import Header from "./components/Header/Header";
+import ListProduct from "./components/ListProduct/ListProduct";
+import Product from "./components/Product/Product";
+import ProductServices from "./services/ProductServices";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+const productServices = new ProductServices();
 
-  const [name, setName] = useState("");
-  const [cont, setCont] = useState(0);
+function App() {
+  const [productName, setName] = useState("");
+  const [txtSearch, setTxtSearch] = useState("Debes buscar un producto");
+  const [productList, setProductList] = useState();
+
+  const getProducts = async (nameTest) => {
+    try {
+      const res = await productServices.getProductsByName(nameTest);
+      if (res.data) {
+        setProductList(res.data.items);
+      }
+    } catch (err) {
+      console.log("Ocurrio un error: ", err);
+    }
+  };
+
+  const searchProduct = async () => {
+    setTxtSearch("Buscando...");
+    setProductList();
+    await getProducts(productName);
+  };
 
   const routes = (
     <Switch>
-      {/* <Route exact path="/" component={ListProduct} /> */}
-      {/* <Route exact path="/items" component={ListProduct} /> */}
-      <Route exact path="/" render={ ()=> <ListProduct name={name}/> } />
-      <Route exact path="/items" render={ ()=> <ListProduct name={name}/> } />
+      <Route exact path="/" render={() => <ListProduct productList={productList} txtSearch={txtSearch} />} />
+      <Route exact path="/items" render={() => <ListProduct productList={productList} txtSearch={txtSearch} />} />
       <Route exact path="/items/:id" component={Product} />
     </Switch>
   );
@@ -24,8 +42,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-          <Header setName={setName} />
-          {routes}
+        <Header setName={setName} searchProduct={searchProduct} />
+        {routes}
       </Router>
     </div>
   );

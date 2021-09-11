@@ -20,7 +20,6 @@ function Product() {
     try {
       const res = await productServices.getProductsById(id);
       if (res.data) {
-        console.log(res.data.item);
         setDetailData(res.data.item);
         setPrice(res.data.item.price);
       }
