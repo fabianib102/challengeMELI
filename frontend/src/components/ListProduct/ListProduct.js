@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 
 const productServices = new ProductServices();
 
-function ListProduct() {
+function ListProduct({ name }) {
 
   const [productList, setProductList] = useState();
 
   useEffect(() => {
-    getProducts();
+    getProducts("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getProducts = async () => {
+  const getProducts = async (nameTest) => {
     try {
-      const res = await productServices.getProductsByName('iphone');
+      const res = await productServices.getProductsByName(nameTest);
       if (res.data) {
         setProductList(res.data.items);
       }
@@ -24,6 +24,10 @@ function ListProduct() {
       console.log("Ocurrio un error: ", err);
     }
   };
+
+  const testFunction = async () => {
+    await getProducts(name);
+  }
 
   const listComponent = () => {
     return productList && productList.length > 0
@@ -48,11 +52,12 @@ function ListProduct() {
         </div>
       </div>
       ))
-    : " No products available";
+    : "Debes buscar un producto";
   }
 
   return (
     <div className="card mb-3 container main-card">
+      <button onClick={()=> testFunction()}>test</button>
       {listComponent()}
     </div>
   );

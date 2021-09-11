@@ -22,3 +22,12 @@
 .btnFind{
   border-radius: 0;
 }
+
+.btnSearch{
+  border: none;
+}
+
+.btnSearchImg{
+  width: 50%;
+  margin-bottom: 4px;
+}
