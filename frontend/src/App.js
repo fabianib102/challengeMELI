@@ -18,6 +18,9 @@ function App() {
     try {
       const res = await productServices.getProductsByName(nameTest);
       if (res.data) {
+        if (res.data.items.length === 0) {
+          setTxtSearch("No se encontró ningún producto...");
+        }
         setProductList(res.data.items);
       }
     } catch (err) {

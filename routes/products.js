@@ -3,34 +3,43 @@ const router = Router();
 const fetch = require("node-fetch");
 
 router.get("/", async (req, res) => {
-  const url = `https://api.mercadolibre.com/sites/MLA/search?q=:${req.query.q}#json`;
-  const fetchResponse = await fetch(url);
-  const jsonFetch = await fetchResponse.json();
-  let arrayResponse = [];
-  for (const key in jsonFetch.results) {
-    const element = {
-      id: jsonFetch.results[key].id,
-      title: jsonFetch.results[key].title,
-      price: {
-        currency: jsonFetch.results[key].prices.presentation.display_currency,
-        amount: jsonFetch.results[key].price,
-        decimals: jsonFetch.results[key].price % 1 != 0 ? (jsonFetch.results[key].price - Math.floor(jsonFetch.results[key].price)).toFixed(2) * 100 : 0,
-      },
-      place: jsonFetch.results[key].address.state_name,
-      picture: jsonFetch.results[key].thumbnail,
-      condition: jsonFetch.results[key].condition,
-      free_shipping: jsonFetch.results[key].shipping.free_shipping
-    };
-    arrayResponse.push(element);
-  }
+
   const result = {
     author: {
       name: 'Fabian',
       lastname: 'Ibañez'
     },
     categories: [],
-    items: arrayResponse
+    items: []
   };
+
+  if(req.query.q === ''){
+    res.status(200).json(result);
+  }
+
+  const url = `https://api.mercadolibre.com/sites/MLA/search?q=:${req.query.q}#json`;
+  const fetchResponse = await fetch(url);
+  const jsonFetch = await fetchResponse.json();
+  let arrayResponse = [];
+
+  for (let index = 0; index < 4; index++) {
+    const element = {
+      id: jsonFetch.results[index].id,
+      title: jsonFetch.results[index].title,
+      price: {
+        currency: jsonFetch.results[index].prices.presentation.display_currency,
+        amount: jsonFetch.results[index].price,
+        decimals: jsonFetch.results[index].price % 1 != 0 ? (jsonFetch.results[index].price - Math.floor(jsonFetch.results[index].price)).toFixed(2) * 100 : 0,
+      },
+      place: jsonFetch.results[index].address.state_name,
+      picture: jsonFetch.results[index].thumbnail,
+      condition: jsonFetch.results[index].condition,
+      free_shipping: jsonFetch.results[index].shipping.free_shipping
+    };
+    arrayResponse.push(element);
+  }
+
+  result.items = arrayResponse;
   res.status(200).json(result);
 });
 

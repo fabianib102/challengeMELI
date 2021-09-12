@@ -1,0 +1,7 @@
+{
+  "component": {
+    "componentFolder": "cypress/component",
+    "testFiles": "**/*spec.{js,jsx,ts,tsx}"
+  },
+  "video": false
+}

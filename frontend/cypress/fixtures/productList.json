@@ -1,0 +1,20 @@
+[
+  {
+    "id":"MLA1100842300",
+    "title":"Apple iPhone SE (2da Generación) 64 Gb - Negro",
+    "price":{"currency":"ARS","amount":116900,"decimals":0},
+    "place":"Capital Federal",
+    "picture":"http://http2.mlstatic.com/D_658260-MLA46552695787_062021-I.jpg",
+    "condition":"new",
+    "free_shipping":true
+  },
+  {
+    "id":"MLA931449399",
+    "title":"Apple iPhone 11 (128 Gb) - Negro",
+    "price":{"currency":"ARS","amount":182999,"decimals":0},
+    "place":"Capital Federal",
+    "picture":"http://http2.mlstatic.com/D_865864-MLA46114990464_052021-I.jpg",
+    "condition":"new",
+    "free_shipping":true
+  }
+]
