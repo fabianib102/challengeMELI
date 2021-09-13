@@ -20,6 +20,7 @@ describe('Testing ListProduct component should', () => {
 
   it('Verify the title and price correct', () => {
     cy.get('.productItem').contains("Apple iPhone SE (2da Generación) 64 Gb - Negro");
+    cy.get('.card-title').contains("116900");
   });
 
 })

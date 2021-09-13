@@ -1,14 +1,18 @@
-# TrueNorth Challenge
+# MELI Challenge
 
-This is the challenge of TrueNorth company for the frontend position. 
+Este es el Challenge para Mercado Libre en la posición de Frontend developer. 
 
 ## Express project
 
-After cloning the project, the first point is run `npm install` command, then you have to run `npm run start-express`, to verify the correct installation please check in any browser http://localhost:3001/tasks, to verify the tests run `npm run test`.
+Después de clonar le proyecto, el primer paso es instalar todos los paquetes de dependencia del proyecto de Express ejecutando el comando `npm install`, una vez hecho eso lo que sigue es ejecutarlo corriendo el comando `npm run start-express`, para verificar la correcta ejecución por favor verificar en la dirección http://localhost:3001/api/items?q=iphone en cualquier browser, para verificar los test escritos ejecutar el comando `npm run test`.
 
 ## Frontend prject
 
-On the other hand, you have to move into the `frontend` folder and install all dependencies with the `npm install` command related to the react project. Finally, run the `npm run start` command and then go to the following link: http://localhost:3000/. In order to verify component tests run `npm run test-cypress` command.
+Por otro lado, debes moverte a la carpeta `frontend` e instalar las dependencias del proyecto en React, debes ejecutar el comando `npm install`. Una vez hecho eso ejecutar el comando `npm run start` para inciar el proyecto, verificarlos en la dirección http://localhost:3000/. Respecto a los test de componentes ejecutar el comando `npm run test-cypress`.
 
-Is important to mention that you must have running the project in two different terminals.
+Aclaración, se debe ejecutar en distintas terminales, los ditintos proyectos correspondientes al Challenge.
+
+
+Muchas Gracias.
+
 
