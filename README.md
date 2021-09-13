@@ -8,9 +8,9 @@ Después de clonar le proyecto, el primer paso es instalar todos los paquetes de
 
 ## Frontend prject
 
-Por otro lado, debes moverte a la carpeta `frontend` e instalar las dependencias del proyecto en React, debes ejecutar el comando `npm install`. Una vez hecho eso ejecutar el comando `npm run start` para inciar el proyecto, verificarlos en la dirección http://localhost:3000/. Respecto a los test de componentes ejecutar el comando `npm run test-cypress`.
+Por otro lado, debes moverte a la carpeta `frontend` e instalar las dependencias del proyecto en React, debes ejecutar el comando `npm install`. Una vez hecho eso ejecutar el comando `npm run start` para iniciar el proyecto, verificarlos en la dirección http://localhost:3000/. Respecto a los test de componentes ejecutar el comando `npm run test-cypress`.
 
-Aclaración, se debe ejecutar en distintas terminales, los ditintos proyectos correspondientes al Challenge.
+Aclaración, se debe ejecutar en distintas terminales, los distintos proyectos correspondientes al Challenge.
 
 
 Muchas Gracias.
